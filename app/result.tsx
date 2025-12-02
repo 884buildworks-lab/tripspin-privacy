@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useLocalSearchParams, router, Stack } from 'expo-router';
 
 import { ThemedView } from '@/components/themed-view';
@@ -47,7 +47,10 @@ export default function ResultScreen() {
         }}
       />
       <ThemedView style={styles.container}>
-        <View style={styles.content}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+        >
           <ThemedText type="title" style={styles.resultTitle}>
             結果発表！
           </ThemedText>
@@ -97,7 +100,7 @@ export default function ResultScreen() {
               variant="secondary"
             />
           </View>
-        </View>
+        </ScrollView>
       </ThemedView>
     </>
   );
@@ -107,11 +110,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content: {
+  scrollView: {
     flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,
+    paddingBottom: 120, // バナー広告分のスペース確保（ボタン4つ分も考慮）
   },
   resultTitle: {
     fontSize: 32,

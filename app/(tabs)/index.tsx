@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,
+    paddingBottom: 100, // バナー広告分のスペース確保
   },
   title: {
     fontSize: 48,

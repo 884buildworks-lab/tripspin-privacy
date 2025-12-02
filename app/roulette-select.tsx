@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: 16,
     paddingTop: 24,
+    paddingBottom: 100, // バナー広告分のスペース確保
   },
   title: {
     fontSize: 28,

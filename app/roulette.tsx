@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useLocalSearchParams, router, Stack } from 'expo-router';
 
 import { ThemedView } from '@/components/themed-view';
@@ -69,7 +69,10 @@ export default function RouletteScreen() {
         }}
       />
       <ThemedView style={styles.container}>
-        <View style={styles.content}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+        >
           <ThemedText type="title" style={styles.title}>
             ルーレット
           </ThemedText>
@@ -99,7 +102,7 @@ export default function RouletteScreen() {
               variant="muted"
             />
           </View>
-        </View>
+        </ScrollView>
       </ThemedView>
     </>
   );
@@ -109,11 +112,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content: {
+  scrollView: {
     flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,
+    paddingBottom: 120, // バナー広告分のスペース確保（ボタン2つ分も考慮）
   },
   title: {
     fontSize: 32,

@@ -57,5 +57,6 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 16,
     paddingTop: 8,
+    paddingBottom: 100, // バナー広告分のスペース確保
   },
 });

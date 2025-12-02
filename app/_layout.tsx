@@ -1,7 +1,7 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -27,7 +27,7 @@ export default function RootLayout() {
                 <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
               </Stack>
             </View>
-            <BannerAdComponent style={styles.bannerAd} />
+            {Platform.OS !== 'web' && <BannerAdComponent />}
           </View>
           <StatusBar style="auto" />
         </ThemeProvider>
@@ -42,11 +42,5 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  },
-  bannerAd: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
 });
